@@ -3,7 +3,7 @@
 .idea
 *.pyc
 *.pyo
-*.db
+**.db
 *.egg-info
 __pycache__
 venv

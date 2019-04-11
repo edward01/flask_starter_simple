@@ -1,20 +1,14 @@
-import os
-from flask import Flask, render_template
+from flask_restplus import Api
+from flask import Blueprint
 
+from .main.controller.user_controller import api as user_ns
 
-def create_app():
-    app = Flask(__name__)
-    app.config.from_mapping(
-        SECRET_KEY='dev',
-        # DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
-    )
+blueprint = Blueprint('api', __name__)
 
-    @app.route('/ping')
-    def pingpong():
-        return 'pong!'
+api = Api(blueprint,
+          title='FLASK RESTPLUS API BOILER-PLATE WITH JWT',
+          version='1.0',
+          description='a boilerplate for flask restplus web service'
+          )
 
-    @app.route('/')
-    def index():
-        return render_template('index.html')
-
-    return app
+api.add_namespace(user_ns, path='/user')

@@ -1,6 +1,9 @@
 * To run locally:
-$ export FLASK_APP=wsgi.py
-$ export FLASK_ENV=development
-$ flask run
+$ python manage.py run
 ---------------------------------------------------------------------------------
+
+* Database model & migrations
+$ python manage.py db init
+$ python manage.py db migrate --message 'initial database migration'
+$ python manage.py db upgrade
 ---------------------------------------------------------------------------------
